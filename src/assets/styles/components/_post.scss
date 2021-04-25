@@ -38,9 +38,16 @@
   .post-footer {
     .icons-container {
       padding: 16px 20px;
-      .icon {
+      display: flex;
+      .icon  {
         height: 24px;
         width: 24px;
+        cursor: pointer;
+      }
+      .likes-count {
+        margin-left: 20px;
+        font-weight: 600;
+        color: rgba(var(--i1d,38,38,38),1);
       }
     }
   }

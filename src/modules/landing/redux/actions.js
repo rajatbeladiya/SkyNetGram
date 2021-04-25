@@ -20,6 +20,11 @@ export const setFeedData = data => ({
   payload: data,
 });
 
+export const setLikesData = data => ({
+  type: actionTypes.SET_LIKES_DATA,
+  payload: data,
+});
+
 export const setLoading = data => ({
   type: actionTypes.SET_LOADING,
   payload: data,

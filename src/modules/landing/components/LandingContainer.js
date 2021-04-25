@@ -6,7 +6,7 @@ import Landing from './Landing';
 import * as landingActions from '../redux/actions';
 import {
   dataDomain, dataKey,
-  client as skynetClient, publicKey, contentRecord
+  client as skynetClient, publicKey, contentRecord, likedataKey
 } from '../../../utils';
 
 class LandingContainer extends Component {
@@ -26,7 +26,9 @@ class LandingContainer extends Component {
     }
     initMySky().then(async () => {
       const res = await skynetClient.db.getJSON(publicKey, dataKey);
+      const likeRes = await skynetClient.db.getJSON(publicKey, likedataKey);
       this.props.setFeedData(res && res.data);
+      this.props.setLikesData((likeRes && likeRes.data) || {});
       this.props.setLoading(false);
     });
   }
@@ -58,6 +60,7 @@ const mapDispatchToProps = dispatch => ({
   setUserId: userId => dispatch(landingActions.setUserId(userId)),
   setIsLoggedIn: isLoggedIn => dispatch(landingActions.setIsLoggedIn(isLoggedIn)),
   setFeedData: data => dispatch(landingActions.setFeedData(data)),
+  setLikesData: data => dispatch(landingActions.setLikesData(data)),
   setLoading: data => dispatch(landingActions.setLoading(data)),
 });
 

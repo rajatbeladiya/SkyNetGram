@@ -5,7 +5,8 @@ const INITIAL_STATE = {
   userId: '',
   isLoggedIn: false,
   feedData: [],
-  loading: false
+  loading: false,
+  likesData: [],
 };
 
 
@@ -35,6 +36,11 @@ export default (state = INITIAL_STATE, action) => { // eslint-disable-line
       return {
         ...state,
         loading: action.payload,
+      };
+    case actionTypes.SET_LIKES_DATA:
+      return {
+        ...state,
+        likesData: action.payload,
       };
     default:
       return state;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import BlockUI from 'react-block-ui';
 import { reduxForm, Form } from 'redux-form';
 import Button from '@material-ui/core/Button';
@@ -26,7 +26,6 @@ const Profile = ({
         <BlockUI
           tag="div"
           blocking={loading}
-          className="full-height"
           loader={<GoogleLoader height={50} width={50} />}
         >
           <div className="right-upload-content">

@@ -4,9 +4,11 @@ import { ContentRecordDAC } from '@skynetlabs/content-record-library';
 export const portal = 'https://siasky.net/';
 
 export const secretKey = "secretkey";
-export const dataKey = "skynetgram-datakey-dev";
-export const dataDomain = "skynetgram-datadomain-dev";
+export const dataKey = "skynetgram-datakey"; 
+export const likedataKey = "skynetgram-likedatakey"; 
+export const dataDomain = "skynetgram-datadomain";
 export const imageUploadFilepath = dataDomain + "/image";
+export const likesFilepath = dataDomain + 'likes';
 
 export const client = new SkynetClient(portal);
 

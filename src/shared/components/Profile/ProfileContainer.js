@@ -26,17 +26,17 @@ class ProfileContainer extends Component {
     const skyLinkData = await uploadFile(this.state.selectedFile);
     const res = await this.props.mySkyData.setJSON(imageUploadFilepath, skyLinkData);
     const tempFeedData = this.props.feedData ? [...this.props.feedData] : [];
-    const howAboutJson = {
+    const feedJson = {
       imageData: skyLinkData,
       userId: this.props.userId,
       creationDate: new Date().toDateString()
     };
-    tempFeedData.unshift(howAboutJson);
-    this.props.setFeedData(tempFeedData);
+    tempFeedData.unshift(feedJson);
     await client.db.setJSON(privateKey, dataKey, tempFeedData);
     contentRecord.recordNewContent({
       skylink: res.skylink
     });
+    this.props.setFeedData(tempFeedData);
     this.setState({ uploadContentLoading: false });
   }
   

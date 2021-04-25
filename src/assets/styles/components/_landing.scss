@@ -1,0 +1,19 @@
+.landing-container {
+  max-width: 935px;
+  margin: 0 auto;
+  display: flex;
+  .landing-left {
+    flex: 3;
+    margin-right: 30px;
+    .no-data {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .landing-right {
+    flex: 1;
+    margin-top: 30px;
+  }
+}

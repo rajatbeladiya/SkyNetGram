@@ -5,7 +5,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
 }
+
+body #root {
+  height: 100%;
+}
+
+body .App, body .full-height {
+  height: 100%;
+}
+
+/* body .App .main-template {
+  height: calc(100% - 54px);
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

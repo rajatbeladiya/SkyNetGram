@@ -1,0 +1,22 @@
+.app-header-container {
+  height: $app-header-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(var(--b6a,219,219,219),1);
+  background-color: rgba(var(--d87,255,255,255),1);
+  .app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 975px;
+    .logo {
+      height: 100%;
+      width: 50px;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}

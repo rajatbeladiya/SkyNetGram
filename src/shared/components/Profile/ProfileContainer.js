@@ -15,11 +15,6 @@ class ProfileContainer extends Component {
     previewImage: '',
     uploadContentLoading: false,
   };
-
-  async componentDidMount() {
-    const mySky = await client.loadMySky(dataDomain, { dev: true });
-    await mySky.loadDacs(contentRecord);
-  }
   
   uploadImage = async () => {
     this.setState({ uploadContentLoading: true });

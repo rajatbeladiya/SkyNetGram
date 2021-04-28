@@ -1,6 +1,8 @@
 import { genKeyPairFromSeed, SkynetClient } from 'skynet-js';
 import { ContentRecordDAC } from '@skynetlabs/content-record-library';
 
+export const isLocalhost = window.location.hostname === 'localhost';
+
 export const portal = 'https://siasky.net/';
 
 export const secretKey = "secretkey";

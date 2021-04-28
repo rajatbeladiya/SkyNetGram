@@ -5,16 +5,17 @@ import PropTypes from 'prop-types';
 import Landing from './Landing';
 import * as landingActions from '../redux/actions';
 import {
-  dataDomain, dataKey,
+  dataDomain, dataKey, isLocalhost,
   client as skynetClient, publicKey, contentRecord, likedataKey
 } from '../../../utils';
 
 class LandingContainer extends Component {
 
   componentDidMount() {
+    console.log('isLocalhost===', isLocalhost);
     const initMySky = async () => {
       this.props.setLoading(true);
-      const mySky = await skynetClient.loadMySky(dataDomain, { dev: true });
+      const mySky = await skynetClient.loadMySky(dataDomain, { dev: isLocalhost });
       this.props.getMySkyData(mySky);
       await mySky.loadDacs(contentRecord);
       const loggedIn = await mySky.checkLogin();

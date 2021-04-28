@@ -2,18 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Post from './Post';
-import { client, contentRecord, dataDomain, likedataKey, likesFilepath, privateKey } from '../../../utils';
+import { client, contentRecord, likedataKey, likesFilepath, privateKey } from '../../../utils';
 import * as landingActions from '../../../modules/landing/redux/actions';
 
 class PostContainer extends Component {
   state = {
     likesLoading: false
   };
-
-  async componentDidMount() {
-    const mySky = await client.loadMySky(dataDomain, { dev: true });
-    await mySky.loadDacs(contentRecord);
-  }
 
   onHeartClick = async (e, data) => {
     this.setState({ likesLoading: true });

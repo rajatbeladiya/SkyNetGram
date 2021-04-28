@@ -2,7 +2,7 @@ name: Deploy to Skynet
 on:
   pull_request:
   push:
-    branches: [master]
+    branches: [main]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,7 +16,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: "Deploy to Skynet"
-        uses: rajatbeladiya/SkyNetGram@master
+        uses: kwypchlo/deploy-to-skynet-action@main
         with:
           upload-dir: build
           github-token: ${{ secrets.GITHUB_TOKEN }}

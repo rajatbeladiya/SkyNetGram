@@ -8,7 +8,6 @@ export const dataKey = 'skynetgram-datakey-prod';
 export const likedataKey = 'skynetgram-likedatakey-prod'; 
 export const dataDomain = 'skynetgram-datadomain';
 export const imageUploadFilepath = dataDomain + '/image';
-export const likesFilepath = dataDomain + '/likes';
 
 export const client = new SkynetClient(portal);
 

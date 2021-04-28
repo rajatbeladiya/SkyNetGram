@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Post from './Post';
-import { client, contentRecord, likedataKey, likesFilepath, privateKey } from '../../../utils';
+import { client, contentRecord, likedataKey, privateKey } from '../../../utils';
 import * as landingActions from '../../../modules/landing/redux/actions';
 
 class PostContainer extends Component {
@@ -12,7 +12,6 @@ class PostContainer extends Component {
 
   onHeartClick = async (e, data) => {
     this.setState({ likesLoading: true });
-    const res = await this.props.mySkyData.setJSON(likesFilepath, {});
     let tempLikesData = Object.keys(this.props.likesData).length > 0 ? {...this.props.likesData} : {};
     const likesJson = {
       [data && data.imageData && data.imageData.skylinkUrl]: {
@@ -34,9 +33,10 @@ class PostContainer extends Component {
       },
     };
     await client.db.setJSON(privateKey, likedataKey, tempLikesData);
-    await contentRecord.recordNewContent({
-      skylink: res.skylink
-    });
+    await contentRecord.recordInteraction({
+      skylink: data && data.imageData && data.imageData.skylink,
+      metadata: { action: 'liked' },
+    });  
     this.props.setLikesData(tempLikesData);
     this.setState({ likesLoading: false });
   }

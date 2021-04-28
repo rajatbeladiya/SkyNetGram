@@ -34,7 +34,7 @@ class PostContainer extends Component {
       },
     };
     await client.db.setJSON(privateKey, likedataKey, tempLikesData);
-    contentRecord.recordNewContent({
+    await contentRecord.recordNewContent({
       skylink: res.skylink
     });
     this.props.setLikesData(tempLikesData);

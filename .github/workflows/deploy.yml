@@ -5,21 +5,18 @@ on:
     branches: [master]
 jobs:
   build:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2-beta
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2-beta
         with:
           node-version: "14"
-    - name: Install dependencies
-      run: npm install
-    - name: Build
-      run: npm run build
-      env:
-        REACT_APP_GIT_SHA: ${{ github.sha }}
-    - name: "Deploy to Skynet"
-      uses: rajatbeladiya/SkyNetGram@master
-      with:
-      upload-dir: build
-      github-token: ${{ secrets.GITHUB_TOKEN }}
-      registry-seed: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && secrets.REGISTRY_SEED || '' }}
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: "Deploy to Skynet"
+        uses: rajatbeladiya/SkyNetGram@master
+        with:
+          upload-dir: build
+          github-token: ${{ secrets.GITHUB_TOKEN }}

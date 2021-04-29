@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { ContentRecordDAC } from '@skynetlabs/content-record-library';
 
 import Profile from './Profile';
-import { uploadFile, imageUploadFilepath, client, privateKey, dataKey, dataDomain } from '../../../utils';
+import {
+  uploadFile, imageUploadFilepath, client,
+  privateKey, dataKey, contentRecord,
+} from '../../../utils';
 import * as landingActions from '../../../modules/landing/redux/actions';
-
-const contentRecord = new ContentRecordDAC();
 
 class ProfileContainer extends Component {
   state = {
@@ -28,11 +28,11 @@ class ProfileContainer extends Component {
     };
     tempFeedData.unshift(feedJson);
     await client.db.setJSON(privateKey, dataKey, tempFeedData);
-    contentRecord.recordNewContent({
+    await contentRecord.recordNewContent({
       skylink: res.skylink
     });
     this.props.setFeedData(tempFeedData);
-    this.setState({ uploadContentLoading: false });
+    this.setState({ uploadContentLoading: false, selectedFile: '', previewImage: '' });
   }
   
   handleChange = (fieldName, files) => {

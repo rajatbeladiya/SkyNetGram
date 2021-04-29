@@ -1,16 +1,13 @@
 import { genKeyPairFromSeed, SkynetClient } from 'skynet-js';
 import { ContentRecordDAC } from '@skynetlabs/content-record-library';
 
-export const isLocalhost = window.location.hostname === 'localhost';
-
 export const portal = 'https://siasky.net/';
 
-export const secretKey = "secretkey";
-export const dataKey = "skynetgram-datakey"; 
-export const likedataKey = "skynetgram-likedatakey"; 
-export const dataDomain = "skynetgram-datadomain";
-export const imageUploadFilepath = dataDomain + "/image";
-export const likesFilepath = dataDomain + 'likes';
+export const secretKey = 'secretkey';
+export const dataKey = 'skynetgram-datakey-prod'; 
+export const likedataKey = 'skynetgram-likedatakey-prod'; 
+export const dataDomain = 'skynetgram-datadomain';
+export const imageUploadFilepath = dataDomain + '/image';
 
 export const client = new SkynetClient(portal);
 

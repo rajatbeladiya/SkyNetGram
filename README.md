@@ -6,7 +6,7 @@ SkyNetGram is social networking app like Instagram with SkyNet Decentralized sto
 
 [Explanation Video](https://youtu.be/Wwapj1eefL0 "Youtube Video")
 <br />
-[App Link](https://0001pdr6q7bk35vqc3rsta9pvh09r32hogbvprvdjkeoa0sgkinedm8.siasky.net/)
+[App Link](https://000cbvu7ebi89c9r1lej0t1hrn3soqjbht044rhjrkhvphs36lfdop0.siasky.net/)
 
 # How to run
 
